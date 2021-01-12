@@ -28,16 +28,15 @@
 </div>
 {% block login %}
     <hr>
-    <p>
     {% for oauth_name in oauth_list %}
             <a role="button" class='btn btn-jupyter btn-lg' href='/{{oauth_name|lower}}/login'>
                 Sign in with {{ oauth_name }}
             </a>
 
     {% endfor %}
-    </p>
-</div>
     <hr>
+</div>
+
 {{ super() }}
         <div id="how-it-works">
     <h3 class="text-center">How it works</h3>
