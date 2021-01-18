@@ -27,6 +27,7 @@
 </div>
 </div>
 {% block login %}
+    {% if oauth_list%}
     <div class="col-lg-offset-4">
     {% for oauth_name in oauth_list %}
             <a role="button" class='btn btn-jupyter btn-lg' href='/{{oauth_name|lower}}/login'>
@@ -37,9 +38,11 @@
     </div>
     <hr>
 </div>
+{% else %}
 <div class="container">
 {{ super() }}
 </div>
+{% endif %}
         <div id="how-it-works">
     <h3 class="text-center">How it works</h3>
 
