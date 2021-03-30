@@ -13,48 +13,31 @@
 {% block stylesheet %}
 <meta id="base-url" data-url="{{ binder_base_url }}">
 <meta id="badge-base-url" data-url="{{badge_base_url}}">
+<meta id="static-url" data-url="{{static_url()}}">
 {# static files from binder #}
-<script src="dist/bundle.js?v={{ static_version }}"></script>
-<link href="dist/styles.css?v={{ static_version }}" rel="stylesheet"/>
-<link rel="stylesheet" href=components/bootstrap/dist/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href=persistent_bhub/persistent_bhub.css" type="text/css"/>
+<script src="{{ static_binder }}dist/bundle.js?v={{ static_version }}"></script>
+<link href="{{ static_binder }}dist/styles.css?v={{ static_version }}" rel="stylesheet"/>
+<link rel="stylesheet" href="{{ static_url("components/bootstrap/dist/css/bootstrap.min.css") }}" type="text/css"/>
+
+<link rel="stylesheet" href="{{ static_url("persistent_bhub/persistent_bhub.css") }}" type="text/css"/>
 {% endblock stylesheet %}
 
 {% block scripts %}
-    <script src=components/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
-    <script src=components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-{#    <script src=components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>#}
+    <script src="{{static_url("components/requirejs/require.js") }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{static_url("components/jquery/dist/jquery.min.js") }}" type="text/javascript" charset="utf-8"></script>
+{#    <script src="{{static_url("components/bootstrap/dist/js/bootstrap.min.js") }}" type="text/javascript" charset="utf-8"></script>#}
 {% endblock scripts %}
 
 {% block main %}
 <div id="main-container" class="container">
-  {% block binder_header %}
-    <div id="header" class="text-center">
-        {#      <h3>Turn a Git repo into a collection of interactive notebooks</h3>#}
-        <div id="explanation">
-            {% block persistency_explanation %}
-            {{ persistency_explanation|safe }}
-            {% endblock persistency_explanation %}
-        </div>
-    </div>
-  {% endblock binder_header %}
-
   {% block projects_form %}
   {% include "projects_form.html" %}
   {% endblock projects_form %}
-
-  {% block how_it_works %}
-  {% include "how_it_works.html" %}
-  {% endblock how_it_works %}
-
-  {% block extra_main_content %}
-      {{ extra_main_content|safe }}
-  {% endblock extra_main_content %}
 </div>
 {% endblock main %}
 
 {% block script %}
-<script src=persistent_bhub/persistent_bhub.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{static_url("persistent_bhub/persistent_bhub.js") }}" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 // initialize binder form
 indexMain();
