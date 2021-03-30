@@ -13,7 +13,7 @@
 {% block stylesheet %}
 <meta id="base-url" data-url="{{ binder_base_url }}">
 <meta id="badge-base-url" data-url="{{badge_base_url}}">
-<meta id="static-url" data-url="{{static_url()}}">
+<meta id="static-url" data-url="{{static_url(/)}}">
 {# static files from binder #}
 <script src="{{ static_binder }}dist/bundle.js?v={{ static_version }}"></script>
 <link href="{{ static_binder }}dist/styles.css?v={{ static_version }}" rel="stylesheet"/>
