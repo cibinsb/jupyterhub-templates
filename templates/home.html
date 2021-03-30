@@ -18,7 +18,7 @@
 <link href="{{ static_binder }}dist/styles.css?v={{ static_version }}" rel="stylesheet"/>
 <link rel="stylesheet" href="{{ static_url("components/bootstrap/dist/css/bootstrap.min.css") }}" type="text/css"/>
 
-<link rel="stylesheet" href="{{ static_url("persistent_bhub.css") }}" type="text/css"/>
+<link rel="stylesheet" href="persistent_bhub.css" type="text/css"/>
 {% endblock stylesheet %}
 
 {% block scripts %}
@@ -36,7 +36,7 @@
 {% endblock main %}
 
 {% block script %}
-<script src="{{static_url("persistent_bhub.js") }}" type="text/javascript" charset="utf-8"></script>
+<script src="persistent_bhub.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 // initialize binder form
 indexMain();
